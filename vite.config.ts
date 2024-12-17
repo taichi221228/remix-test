@@ -24,5 +24,5 @@ export default defineConfig({
       }),
     tsconfigPaths(),
   ],
-  test: {},
+  test: { globals: true },
 });
