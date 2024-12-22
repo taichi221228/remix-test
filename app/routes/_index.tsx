@@ -10,5 +10,5 @@ export const meta: MetaFunction = () => {
 };
 
 export default function Index() {
-  return <Page />;
+  return <Page name="Remix" />;
 }
