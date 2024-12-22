@@ -7,13 +7,13 @@ import { render, screen } from "@testing-library/react";
 
 import { default as Component } from "./_index";
 
-const path = "/";
+const path = "/loader";
 
-test("render <Index />", () => {
+test("render <IndexWithLoader />", () => {
   const App = createRemixStub([{ path, Component }]);
 
   render(<App initialEntries={[path]} />);
 
   const target = screen.getByRole("heading", { level: 1 });
-  expect(target).toHaveTextContent("Welcome to Remix");
+  expect(target).toHaveTextContent("Welcome to Remix with loader");
 });

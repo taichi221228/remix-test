@@ -1,6 +1,7 @@
 import type { MetaFunction } from "@remix-run/node";
 
 import { Page } from "~/components/page";
+import { useLoaderData } from "@remix-run/react";
 
 export const meta: MetaFunction = () => {
   return [
@@ -9,6 +10,12 @@ export const meta: MetaFunction = () => {
   ];
 };
 
-export default function Index() {
-  return <Page name="Remix" />;
+export const loader = () => {
+  return { name: "Remix with loader" };
+};
+
+export default function IndexWithLoader() {
+  const { name } = useLoaderData<typeof loader>();
+
+  return <Page name={name} />;
 }
