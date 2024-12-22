@@ -5,12 +5,12 @@ import "@testing-library/jest-dom/vitest";
 import { createRemixStub } from "@remix-run/testing";
 import { render, screen } from "@testing-library/react";
 
-import { default as Component } from "./_index";
+import { default as Component, loader } from "./_index";
 
 const path = "/loader";
 
 test("render <IndexWithLoader />", () => {
-  const App = createRemixStub([{ path, Component }]);
+  const App = createRemixStub([{ path, Component, loader }]);
 
   render(<App initialEntries={[path]} />);
 
