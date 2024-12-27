@@ -10,9 +10,11 @@ declare module "@remix-run/node" {
   }
 }
 
+const isStorybook = process.argv[1]?.includes("storybook");
+
 export default defineConfig({
   plugins: [
-    process.env.NODE_ENV !== "test" &&
+    (process.env.NODE_ENV !== "test" && !isStorybook) &&
       remix({
         future: {
           v3_fetcherPersist: true,
